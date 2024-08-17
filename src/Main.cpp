@@ -43,6 +43,8 @@ int main(int argc, char** argv)
 		AppWindow applicationWindow("Connect Four", jsonConfigFile.GetAttribute("windowResolution")[0].get<uint16_t>(),
 			jsonConfigFile.GetAttribute("windowResolution")[1].get<uint16_t>());
 
+		GraphicsRenderer& renderer = applicationWindow.GetRenderer();
+
 		bool shouldTerminate = false;
 		while (!shouldTerminate) // The main game loop
 		{
@@ -52,6 +54,12 @@ int main(int argc, char** argv)
 				if (event.type == SDL_EVENT_QUIT)
 					shouldTerminate = true;
 			}
+
+			renderer.Clear();
+
+			renderer.DrawFillRect({ 10, 10, 100, 100 }, { 255, 0, 0, 255 });
+
+			renderer.Update();
 		}
 
 		SDL_Quit();

@@ -15,6 +15,7 @@ AppWindow::AppWindow(std::string_view title, uint16_t width, uint16_t height) :
 	}
 
 	SDL_SetWindowPosition(m_window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+	m_renderer = GraphicsRenderer(m_window); // Init the graphics renderer
 }
 
 AppWindow::~AppWindow()
@@ -29,6 +30,11 @@ AppWindow::~AppWindow()
 bool AppWindow::GetNextEvent(SDL_Event* event)
 {
 	return SDL_PollEvent(event);
+}
+
+GraphicsRenderer& AppWindow::GetRenderer()
+{
+	return m_renderer;
 }
 
 std::string_view AppWindow::GetTitle() const

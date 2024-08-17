@@ -1,6 +1,8 @@
 #ifndef APP_WINDOW_H
 #define APP_WINDOW_H
 
+#include "GraphicsRenderer.h"
+
 #include <SDL3/SDL.h>
 #include <string>
 
@@ -29,6 +31,12 @@ public:
 	bool GetNextEvent(SDL_Event* event);
 	
 	/**
+	 * @brief Gets the application window's graphics renderer.
+	 * @return The graphics renderer attached to the application window.
+	 */
+	GraphicsRenderer& GetRenderer();
+
+	/**
 	 * @brief Gets the title of the window.
 	 * @return The title of the window.
 	 */
@@ -49,6 +57,8 @@ private:
 	SDL_Window* m_window;
 	std::string m_title;
 	uint16_t m_width, m_height;
+
+	GraphicsRenderer m_renderer;
 };
 
 #endif
