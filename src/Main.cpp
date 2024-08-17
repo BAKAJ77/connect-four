@@ -1,3 +1,4 @@
+#include "AppWindow.h"
 #include "ConfigHandler.h"
 
 #include <iostream>
@@ -36,6 +37,21 @@ int main(int argc, char** argv)
 		if (SDL_Init(SDL_INIT_VIDEO) < 0) // Initialize the SDL video subsystem
 		{
 			throw std::runtime_error(SDL_GetError());
+		}
+
+		// Create the application window
+		AppWindow applicationWindow("Connect Four", jsonConfigFile.GetAttribute("windowResolution")[0].get<uint16_t>(),
+			jsonConfigFile.GetAttribute("windowResolution")[1].get<uint16_t>());
+
+		bool shouldTerminate = false;
+		while (!shouldTerminate) // The main game loop
+		{
+			SDL_Event event;
+			while (applicationWindow.GetNextEvent(&event)) // Process each pending event
+			{
+				if (event.type == SDL_EVENT_QUIT)
+					shouldTerminate = true;
+			}
 		}
 
 		SDL_Quit();

@@ -4,9 +4,10 @@ if (CF_BUILD_TESTS)
 
     configure_file("Config.h.in" "Config.h")
 
-    set(CF_TEST_TARGETS SDLInitTest ConfigHandlerTest)
+    set(CF_TEST_TARGETS SDLInitTest ConfigHandlerTest AppWindowTest)
     add_executable(SDLInitTest "SDLInitTest.cpp")
     add_executable(ConfigHandlerTest "ConfigHandlerTest.cpp" "../src/ConfigHandler.h" "../src/ConfigHandler.cpp")
+    add_executable(AppWindowTest "AppWindowTest.cpp" "../src/AppWindow.h" "../src/AppWindow.cpp")
     
     foreach(TEST_TARGET IN LISTS CF_TEST_TARGETS)
         set_target_properties("${TEST_TARGET}" PROPERTIES 
@@ -20,4 +21,5 @@ if (CF_BUILD_TESTS)
 
     add_test(NAME SDLInitTest COMMAND SDLInitTest)
     add_test(NAME ConfigHandlerTest COMMAND ConfigHandlerTest)
+    add_test(NAME AppWindowTest COMMAND AppWindowTest)
 endif()
