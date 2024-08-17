@@ -1,3 +1,5 @@
+#include "ConfigHandler.h"
+
 #include <iostream>
 #include <SDL3/SDL.h>
 
@@ -15,6 +17,22 @@ int main(int argc, char** argv)
 {
 	try
 	{
+		// Initialize the JSON configuration handler
+		const std::filesystem::path CONFIG_FILE_PATH = "ConfigSettings.json";
+		ConfigHandler jsonConfigFile;
+
+		if (!std::filesystem::exists(CONFIG_FILE_PATH)) // Default config setting values
+		{
+			jsonConfigFile.SetAttribute("windowResolution", { 800, 800 });
+			jsonConfigFile.SetAttribute("gridDimensions", { 7, 6 });
+			jsonConfigFile.SetAttribute("winningRowLength", 4);
+			jsonConfigFile.WriteToFile(CONFIG_FILE_PATH);
+		}
+		else // Load the config setting values from existing file
+		{
+			jsonConfigFile.LoadFromFile(CONFIG_FILE_PATH);
+		}
+
 		if (SDL_Init(SDL_INIT_VIDEO) < 0) // Initialize the SDL video subsystem
 		{
 			throw std::runtime_error(SDL_GetError());

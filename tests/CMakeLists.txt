@@ -4,9 +4,9 @@ if (CF_BUILD_TESTS)
 
     configure_file("Config.h.in" "Config.h")
 
-    set(CF_TEST_TARGETS SDLInitTest)
+    set(CF_TEST_TARGETS SDLInitTest ConfigHandlerTest)
     add_executable(SDLInitTest "SDLInitTest.cpp")
-    
+    add_executable(ConfigHandlerTest "ConfigHandlerTest.cpp" "../src/ConfigHandler.h" "../src/ConfigHandler.cpp")
     
     foreach(TEST_TARGET IN LISTS CF_TEST_TARGETS)
         set_target_properties("${TEST_TARGET}" PROPERTIES 
@@ -19,4 +19,5 @@ if (CF_BUILD_TESTS)
     endforeach()
 
     add_test(NAME SDLInitTest COMMAND SDLInitTest)
+    add_test(NAME ConfigHandlerTest COMMAND ConfigHandlerTest)
 endif()

@@ -1,2 +1,5 @@
 # Ignore CMake build directory
 build/
+
+# Ignore test generated files
+tests/TestConfig.json
