@@ -1,5 +1,6 @@
 #include "AppWindow.h"
 #include "ConfigHandler.h"
+#include "GameGrid.h"
 
 #include <iostream>
 #include <SDL3/SDL.h>
@@ -44,6 +45,8 @@ int main(int argc, char** argv)
 			jsonConfigFile.GetAttribute("windowResolution")[1].get<uint16_t>());
 
 		GraphicsRenderer& renderer = applicationWindow.GetRenderer();
+		GameGrid gameGrid(applicationWindow, jsonConfigFile.GetAttribute("gridDimensions")[0].get<uint8_t>(),
+			jsonConfigFile.GetAttribute("gridDimensions")[1].get<uint8_t>());
 
 		bool shouldTerminate = false;
 		while (!shouldTerminate) // The main game loop
@@ -51,12 +54,24 @@ int main(int argc, char** argv)
 			SDL_Event event;
 			while (applicationWindow.GetNextEvent(&event)) // Process each pending event
 			{
-				if (event.type == SDL_EVENT_QUIT)
+				if (event.type == SDL_EVENT_KEY_DOWN)
+				{
+					if (event.key.key == SDLK_R)
+					{
+						gameGrid.ResetGrid();
+					}
+				}
+				else if (event.type == SDL_EVENT_QUIT)
+				{
 					shouldTerminate = true;
+				}
 			}
 
-			renderer.Clear();
+			gameGrid.Update(); // Update the game grid
 
+			// Render the game grid
+			renderer.Clear();
+			gameGrid.Draw(renderer);
 			renderer.Update();
 		}
 

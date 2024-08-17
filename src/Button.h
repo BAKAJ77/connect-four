@@ -33,9 +33,21 @@ public:
 	 * @return True if being pressed, otherwise False is returned.
 	 */
 	bool IsPressed() const;
+
+	/**
+	 * @brief Gets whether or not the button is currently being hovered over.
+	 * @return True if being hovered over, otherwise False is returned.
+	 */
+	bool IsHovering() const;
+
+	/**
+	 * @brief Gets the buttons position and size.
+	 * @return The position and size of the button.
+	 */
+	SDL_FRect GetBounds() const;
 private:
 	SDL_FRect m_bounds;
-	bool m_isPressed, m_isReleased;
+	bool m_isPressed, m_isReleased, m_isHovering;
 };
 
 #endif
