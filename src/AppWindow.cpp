@@ -51,3 +51,8 @@ uint16_t AppWindow::GetHeight() const
 {
 	return m_height;
 }
+
+SDL_Window* AppWindow::GetSDLWindowStruct()
+{
+	return m_window;
+}

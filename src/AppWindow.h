@@ -53,6 +53,12 @@ public:
 	 * @return The height of the window.
 	 */
 	uint16_t GetHeight() const;
+
+	/**
+	 * @brief Gets the underlying SDL3 window struct.
+	 * @return Pointer to the underlying SDL3 window struct.
+	 */
+	SDL_Window* GetSDLWindowStruct();
 private:
 	SDL_Window* m_window;
 	std::string m_title;

@@ -15,8 +15,8 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON) # Enable the use of project solutio
 set(CF_INCLUDE_DIRECTORIES "${PROJECT_SOURCE_DIR}/external/SDL_ttf/external/SDL/include" "${PROJECT_SOURCE_DIR}/external/SDL_ttf/include"
     "${PROJECT_SOURCE_DIR}/external/json/include" "${PROJECT_SOURCE_DIR}/src")
 
-set(CF_HEADER_FILES "src/ConfigHandler.h" "src/AppWindow.h" "src/GraphicsRenderer.h")
-set(CF_SOURCE_FILES "src/Main.cpp" "src/ConfigHandler.cpp" "src/AppWindow.cpp" "src/GraphicsRenderer.cpp")
+set(CF_HEADER_FILES "src/ConfigHandler.h" "src/AppWindow.h" "src/GraphicsRenderer.h" "src/Button.h")
+set(CF_SOURCE_FILES "src/Main.cpp" "src/ConfigHandler.cpp" "src/AppWindow.cpp" "src/GraphicsRenderer.cpp" "src/Button.cpp")
 
 set(BUILD_SHARED_LIBS OFF) # Force SDL and SDL_ttf to be built statically
 option(CF_BUILD_TESTS "Specifies whether or not the project tests should be built" ON)

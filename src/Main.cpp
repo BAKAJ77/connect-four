@@ -57,8 +57,6 @@ int main(int argc, char** argv)
 
 			renderer.Clear();
 
-			renderer.DrawFillRect({ 10, 10, 100, 100 }, { 255, 0, 0, 255 });
-
 			renderer.Update();
 		}
 
