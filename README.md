@@ -44,3 +44,6 @@ cmake --build . -DCMAKE_BUILD_TYPE=Release
 
 ## Controls
 - `R` - Resets the entire game grid.
+
+## License
+This project is released under the terms of the Apache 2.0 license. See [LICENSE](LICENSE) for more information or see https://www.apache.org/licenses/LICENSE-2.0.
