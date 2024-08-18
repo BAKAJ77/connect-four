@@ -46,9 +46,9 @@ cmake --build . -DCMAKE_BUILD_TYPE=Release
 - `R` - Resets the entire game grid.
 
 ## Configurations
-- `windowResolution` - Specifies what resolution the window should be (Default: `800x800`).
-- `gridDimensions` - Specifies the number of columns and rows the grid should contain (Default: `7x6`, Min: `5 columns/rows`, Max: `10 columns/rows`).
-- `winningRowLength` - Specifies the number of counters needed in a row for a player to be declared as the winner (Default: `4`, Min: `3`, Max: `6`).
+- `windowResolution` - Specifies what resolution the window should be (Default: 800x800).
+- `gridDimensions` - Specifies the number of columns and rows the grid should contain (Default: 7 columns by 6 rows, Min: 5 columns/rows, Max: 10 columns/rows).
+- `winningRowLength` - Specifies the number of counters needed in a row for a player to be declared as the winner (Default: 4, Min: 3, Max: 6).
 
 ## License
 This project is released under the terms of the Apache 2.0 license. See [LICENSE](LICENSE) for more information or see https://www.apache.org/licenses/LICENSE-2.0.
