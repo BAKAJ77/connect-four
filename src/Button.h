@@ -47,7 +47,8 @@ public:
 	SDL_FRect GetBounds() const;
 private:
 	SDL_FRect m_bounds;
-	bool m_isPressed, m_isReleased, m_isHovering;
+	bool m_isPressed, m_isHovering;
+	static bool sm_isReleased;
 };
 
 #endif
