@@ -17,8 +17,9 @@ public:
 	 * @param[in] window The current application window.
 	 * @param[in] columns The amount of columns to set for the game grid.
 	 * @param[in] rows The amount of rows to set for the game grid.
+	 * @param[in] winningRowLength The amount of counters in a row to win the game.
 	 */
-	GameGrid(AppWindow& window, uint8_t columns, uint8_t rows);
+	GameGrid(AppWindow& window, uint8_t columns, uint8_t rows, uint8_t winningRowLength);
 
 	~GameGrid() = default;
 
@@ -45,16 +46,20 @@ private:
 	 * @param[in] column The column index to place the counter in.
 	 */
 	void PlacePlayerCounter(int column);
+
+	bool CheckIfPlayerWon(uint8_t currentPlayer, int row, int column);
 private:
 	uint8_t m_currentPlayer;
 
 	std::vector<std::vector<uint8_t>> m_grid;
-	uint8_t m_columns, m_rows;
+	uint8_t m_columns, m_rows, m_winningRowLength;
 	AppWindow* m_window;
 
 	std::vector<Button> m_columnButtons;
 	float m_scalingX, m_scalingY;
 	Button* m_hoveredColumn;
+
+	bool m_currentGameCompleted;
 };
 
 #endif

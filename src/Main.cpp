@@ -46,7 +46,7 @@ int main(int argc, char** argv)
 
 		GraphicsRenderer& renderer = applicationWindow.GetRenderer();
 		GameGrid gameGrid(applicationWindow, jsonConfigFile.GetAttribute("gridDimensions")[0].get<uint8_t>(),
-			jsonConfigFile.GetAttribute("gridDimensions")[1].get<uint8_t>());
+			jsonConfigFile.GetAttribute("gridDimensions")[1].get<uint8_t>(), jsonConfigFile.GetAttribute("winningRowLength").get<uint8_t>());
 
 		bool shouldTerminate = false;
 		while (!shouldTerminate) // The main game loop
