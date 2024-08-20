@@ -1,6 +1,7 @@
 #include "AppWindow.h"
 #include "ConfigHandler.h"
 #include "GameGrid.h"
+#include "LogHandler.h"
 
 #include <iostream>
 #include <SDL3/SDL.h>
@@ -79,7 +80,7 @@ int main(int argc, char** argv)
 	}
 	catch (std::exception& e)
 	{
-		std::printf("%s\n", e.what());
+		LogHandler::GetInstance().OutputLog("%s\n", e.what());
 		return EXIT_FAILURE;
 	}
 
