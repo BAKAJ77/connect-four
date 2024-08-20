@@ -7,7 +7,7 @@ if (CF_BUILD_TESTS)
     set(CF_TEST_TARGETS SDLInitTest ConfigHandlerTest AppWindowTest)
     add_executable(SDLInitTest "SDLInitTest.cpp")
     add_executable(ConfigHandlerTest "ConfigHandlerTest.cpp" "../src/ConfigHandler.h" "../src/ConfigHandler.cpp")
-    add_executable(AppWindowTest "AppWindowTest.cpp" "../src/AppWindow.h" "../src/AppWindow.cpp")
+    add_executable(AppWindowTest "AppWindowTest.cpp" "../src/AppWindow.h" "../src/AppWindow.cpp" "../src/GraphicsRenderer.h" "../src/GraphicsRenderer.cpp")
     
     foreach(TEST_TARGET IN LISTS CF_TEST_TARGETS)
         set_target_properties("${TEST_TARGET}" PROPERTIES 
