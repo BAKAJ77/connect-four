@@ -18,28 +18,17 @@ md build
 cd build
 cmake ..
 ```
-**For MacOS-based systems:**
+**For Ubuntu-based systems:**
 ```
 git clone --recursive https://github.com/BAKAJ77/chip8-emulator.git
 mkdir build
 cd build
-cmake ..
+cmake .. -DSDLTTF_VENDORED=ON -DSDL_X11_SHARED=OFF
 ```
 
-This should generate the project files required for you to be able to build the project yourself, though you can make CMake build the project for you by running the following command: </br>
+Then run the following command to build the project: </br>
 ```
 cmake --build .
-```
-
-The above command builds a debug version of the application; to build a release version, you simply need to do:
-
-**For Windows-based systems:**
-```
-cmake --build . --config Release
-```
-**For MacOS-based systems:**
-```
-cmake --build . -DCMAKE_BUILD_TYPE=Release
 ```
 
 ## Controls
