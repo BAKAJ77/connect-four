@@ -10,6 +10,12 @@ All you will need to build this project is:
 
 If you don't have CMake installed on your computer, you can download the latest version from their official website [here](https://cmake.org/download/).
 
+For Ubuntu-based system users, please ensure that you have X11 installed; X11 can be installed using the following terminal commands:
+```
+sudo apt install libx11-dev
+sudo apt install xorg-dev
+```
+
 ## Building
 **For Windows-based systems:**
 ```
